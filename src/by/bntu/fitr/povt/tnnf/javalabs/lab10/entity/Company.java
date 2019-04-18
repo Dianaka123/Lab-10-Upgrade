@@ -9,11 +9,7 @@ public class Company {
     public Employer masOfEmployers[] = new Employer[DEFAULT_EMPOLOER_AMOUNT];
     public int countOfEmployers = 0;
     public String name;
-//    public Employer employer1;
-//    public Employer employer2;
-//    public Employer employer3;
-//    public Employer employer4;
-//    public Employer employer5;
+
     public int salaryOfEmp;
     public int bonus;
 

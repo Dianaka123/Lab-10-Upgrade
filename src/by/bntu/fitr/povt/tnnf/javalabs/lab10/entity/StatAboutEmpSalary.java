@@ -3,7 +3,9 @@ package by.bntu.fitr.povt.tnnf.javalabs.lab10.entity;
 public class StatAboutEmpSalary {
         public static final int FIRSTRANGE = 100;
         public static final int SECONDRANGE = 300;
+
         public Employer topSalary[][] = new Employer[3][5];
+
         public int countOnFirstLine = 0;
         public int countOnSecondLine = 0;
         public int countOnThirdLine = 0;

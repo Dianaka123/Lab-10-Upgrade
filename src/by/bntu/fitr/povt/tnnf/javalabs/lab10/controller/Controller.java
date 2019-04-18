@@ -9,7 +9,9 @@ import by.bntu.fitr.povt.tnnf.javalabs.lab10.view.View;
 public class Controller {
     public static void main(String[] args) {
         Company company = new Company("OurCompany");
+
         Customer customer = new Customer();
+
         company.addEmployer( new Employer("Loshic", 150, "Cleaner", 20, 3));
         company.addEmployer( new Employer("Tereshko", 300, "Manager", 30, 5));
         company.addEmployer(new Employer("Ivanov", 250, "Employer", 40, 5));
@@ -22,6 +24,8 @@ public class Controller {
         View.print(company.masOfEmployers[2].stayFriend() + "\n");
         View.print("");
         int task = customer.giveCustoms();
+        customer.setTypeProject("hard");
+        View.print("I give you "+ customer.getTypeOfProject()+ " task\n");
         View.print("You need to do this task: " + task + "\n");
         company.masOfEmployers[0].makeFail();
         View.print("Our customer do review to our job: " + customer.doReview(middleSalary) + "\n");
