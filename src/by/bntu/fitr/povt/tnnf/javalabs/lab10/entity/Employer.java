@@ -1,14 +1,14 @@
 package by.bntu.fitr.povt.tnnf.javalabs.lab10.entity;
 
 public class Employer {
-    public static int employerAmount;
-    public String name;
-    public int salary;
-    public String typeOfWork;
-    public int age;
-    public int numOfExperience;
-    public String weAreFriends;
-    public String fail;
+    private static int employerAmount;
+    private String name;
+    private int salary;
+    private String typeOfWork;
+    private int age;
+    private int numOfExperience;
+    private String weAreFriends;
+    private String fail;
 
     static {
         employerAmount = 0;
@@ -41,6 +41,14 @@ public class Employer {
         typeOfWork = employer.typeOfWork;
         age = employer.age;
         numOfExperience = employer.numOfExperience;
+    }
+
+    public int getSalary() {
+        return salary;
+    }
+
+    public void setSalary(int salary) {
+        this.salary = salary;
     }
 
     public String makeFail() {

@@ -1,6 +1,6 @@
 package by.bntu.fitr.povt.tnnf.javalabs.lab10.entity;
 
-import by.bntu.fitr.povt.tnnf.javalabs.lab10.logic.Manager;
+import by.bntu.fitr.povt.tnnf.javalabs.lab10.enums.TypeOfProject;
 
 import java.util.Random;
 
@@ -13,7 +13,7 @@ public class Customer {
     private TypeOfProject typeOfProject;
     private int task;
     private int countOfTasks = 3;
-    Random random = new Random();
+    private Random random = new Random();
     private int middleNormalSalary = 340;
     private String review;
 
@@ -99,9 +99,3 @@ public class Customer {
     }
 }
 
-enum TypeOfProject{
-    NONE,
-    EASY,
-    HARD,
-    MIDDLE
-}

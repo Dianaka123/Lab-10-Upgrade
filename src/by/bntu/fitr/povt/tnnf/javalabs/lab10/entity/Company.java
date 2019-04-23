@@ -3,20 +3,18 @@ package by.bntu.fitr.povt.tnnf.javalabs.lab10.entity;
 import java.util.Arrays;
 
 public class Company {
-    public static final int DEFAULT_EMPOLOER_AMOUNT = 5;
+    private static final int DEFAULT_EMPOLOER_AMOUNT = 5;
 
 
-    public Employer masOfEmployers[] = new Employer[DEFAULT_EMPOLOER_AMOUNT];
-    public int countOfEmployers = 0;
-    public String name;
+    private Employer[] masOfEmployers = new Employer[DEFAULT_EMPOLOER_AMOUNT];
+    private int countOfEmployers = 0;
+    private String name;
 
-    public int salaryOfEmp;
-    public int bonus;
+    private int salaryOfEmp;
+    private int bonus;
 
     public StatAboutEmpSalary statAboutEmpSalary = new StatAboutEmpSalary();
 
-    public Company() {
-    }
 
     public Company(String name) {
         this.name = name;
@@ -36,6 +34,30 @@ public class Company {
         this.bonus = company.bonus;
     }
 
+    public Employer getEmployer(int indexPerson){
+        return masOfEmployers[indexPerson];
+    }
+
+    public Employer[] getMasOfEmployers() {
+        return masOfEmployers;
+    }
+
+    public void setMasOfEmployers(Employer[] masOfEmployers) {
+        this.masOfEmployers = masOfEmployers;
+    }
+
+    public void giveSalary(int middleSalary){
+        for (Employer employer:masOfEmployers
+        ) { employer.setSalary(middleSalary);
+
+        }
+    }
+
+    public void doBonus(Employer employer){
+        int newSalary = employer.getSalary()  + 100;
+        employer.setSalary(newSalary);
+    }
+
     @Override
     public String toString() {
         return "Company{" +
@@ -46,13 +68,5 @@ public class Company {
                 ", bonus=" + bonus +
                 '}';
     }
-public void giveSalary(int middleSalary){
-    for (Employer employer:masOfEmployers
-         ) { employer.salary+=middleSalary;
 
-    }
-}
-    public int doBonus(Employer employer){
-        return employer.salary + 100;
-    }
 }

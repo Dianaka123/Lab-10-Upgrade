@@ -1,20 +1,20 @@
 package by.bntu.fitr.povt.tnnf.javalabs.lab10.entity;
 
 public class StatAboutEmpSalary {
-        public static final int FIRSTRANGE = 100;
-        public static final int SECONDRANGE = 300;
+        private static final int FIRSTRANGE = 100;
+        private static final int SECONDRANGE = 300;
 
-        public Employer topSalary[][] = new Employer[3][5];
+        private Employer[][] topSalary = new Employer[3][5];
 
-        public int countOnFirstLine = 0;
-        public int countOnSecondLine = 0;
-        public int countOnThirdLine = 0;
+        private int countOnFirstLine = 0;
+        private int countOnSecondLine = 0;
+        private int countOnThirdLine = 0;
 
         public void addEmployer(Employer employer){
-            if ( employer.salary <FIRSTRANGE){
+            if ( employer.getSalary() <FIRSTRANGE){
                 topSalary[0][countOnFirstLine++] = employer;
             }
-            else if (employer.salary <SECONDRANGE ){
+            else if (employer.getSalary() <SECONDRANGE ){
                 topSalary[1][countOnSecondLine++] = employer;
             }
             else{

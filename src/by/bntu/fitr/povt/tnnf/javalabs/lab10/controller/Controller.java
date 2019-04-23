@@ -21,15 +21,16 @@ public class Controller {
         double allSalary = Manager.calculateCommonSalary(company);
         double middleSalary = Manager.calculateMiddleSalary(company);
         System.out.println(company.statAboutEmpSalary.getLine(2));
-        View.print(company.masOfEmployers[2].stayFriend() + "\n");
+        View.print(company.getEmployer(0).stayFriend() + "\n");
         View.print("");
         int task = customer.giveCustoms();
-        customer.setTypeProject("hard");
+        customer.setTypeProject("Hard");
         View.print("I give you "+ customer.getTypeOfProject()+ " task\n");
         View.print("You need to do this task: " + task + "\n");
-        company.masOfEmployers[0].makeFail();
+        company.getEmployer(0).makeFail();
         View.print("Our customer do review to our job: " + customer.doReview(middleSalary) + "\n");
-        View.print("Employer 5 give a bonus " + company.doBonus(company.masOfEmployers[4]) + "\n");
+        company.doBonus(company.getEmployer(4));
+        View.print("Employer 5 give a bonus " + company.getEmployer(4).getSalary() + "\n");
 
         View.print("\nAll salary of employers = " + allSalary);
     }
