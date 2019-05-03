@@ -1,71 +1,53 @@
 package by.bntu.fitr.povt.tnnf.javalabs.lab10.entity;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 
 public class Company {
-    private static final int DEFAULT_EMPOLOER_AMOUNT = 5;
 
+    private static final int DEFAULT_COUNT_TEAM = 3;
 
-    private Employer[] masOfEmployers = new Employer[DEFAULT_EMPOLOER_AMOUNT];
-    private int countOfEmployers = 0;
+    private ArrayList<Team> team;
     private String name;
-
-    private int salaryOfEmp;
-    private int bonus;
-
-    public StatAboutEmpSalary statAboutEmpSalary = new StatAboutEmpSalary();
 
 
     public Company(String name) {
         this.name = name;
-    }
-
-    public void addEmployer(Employer emp1) {
-        masOfEmployers[countOfEmployers++] = emp1;
-        statAboutEmpSalary.addEmployer(emp1);
+        this.team = new ArrayList<Team>();
     }
 
 
     public Company(Company company) {
         this.name = company.name;
-        this.countOfEmployers = company.countOfEmployers;
-        this.masOfEmployers = company.masOfEmployers;
-        this.salaryOfEmp = company.salaryOfEmp;
-        this.bonus = company.bonus;
+        this.team = company.team;
     }
 
-    public Employer getEmployer(int indexPerson){
-        return masOfEmployers[indexPerson];
+    public ArrayList<Team> getTeam() {
+        return team;
     }
 
-    public Employer[] getMasOfEmployers() {
-        return masOfEmployers;
-    }
-
-    public void setMasOfEmployers(Employer[] masOfEmployers) {
-        this.masOfEmployers = masOfEmployers;
-    }
-
-    public void giveSalary(int middleSalary){
-        for (Employer employer:masOfEmployers
-        ) { employer.setSalary(middleSalary);
-
+    public void setTeam(ArrayList<Team> team) {
+        if (team != null) {
+            this.team = team;
         }
     }
 
-    public void doBonus(Employer employer){
-        int newSalary = employer.getSalary()  + 100;
-        employer.setSalary(newSalary);
+    public void addTeam(Team team){
+        this.team.add(team);
+    }
+
+    public void deliteTeam(Team team){
+        this.team.remove(team);
+    }
+
+    public void deliteTeamByIndex(int index){
+        this.team.remove(index);
     }
 
     @Override
     public String toString() {
-        return "Company{" +
-                "masOfEmployers=" + Arrays.toString(masOfEmployers) +
-                ", countOfEmployers=" + countOfEmployers +
-                ", name='" + name + '\'' +
-                ", salaryOfEmp=" + salaryOfEmp +
-                ", bonus=" + bonus +
+        return  " name company = " + name + '\'' +
+                "teams: " + Arrays.toString(team.toArray()) +
                 '}';
     }
 
