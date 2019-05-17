@@ -1,53 +1,85 @@
 package by.bntu.fitr.povt.tnnf.javalabs.lab10.entity;
 
+import by.bntu.fitr.povt.tnnf.javalabs.lab10.entity.search.SearchStrategy;
+
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 public class Company {
 
     private static final int DEFAULT_COUNT_TEAM = 3;
 
-    private ArrayList<Team> team;
+    private List<Team> teams;
     private String name;
+    private SearchStrategy searchStrategy;
 
-
-    public Company(String name) {
+    public Company(String name, SearchStrategy searchStrategy) {
         this.name = name;
-        this.team = new ArrayList<Team>();
+        this.teams = new ArrayList<>();
+        this.searchStrategy = searchStrategy;
     }
 
 
     public Company(Company company) {
         this.name = company.name;
-        this.team = company.team;
+        this.teams = company.teams;
+        this.searchStrategy = company.searchStrategy;
     }
 
-    public ArrayList<Team> getTeam() {
-        return team;
+    public List<Team> getTeams() {
+        return teams;
     }
 
-    public void setTeam(ArrayList<Team> team) {
-        if (team != null) {
-            this.team = team;
+    public void setTeams(List<Team> teams) {
+        if (teams != null) {
+            this.teams = teams;
         }
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        if (name != null) {
+            this.name = name;
+        }
+    }
+
+    public List<Employer> doSearch(List<Employer> employers){
+        return this.searchStrategy.search(employers);
+    }
+
+    public void setSearchStrategy(SearchStrategy searchStrategy) {
+        this.searchStrategy = searchStrategy;
+    }
+
+    public List<Employer> getAllEmployer() {
+        List<Employer> employers = new ArrayList<>();
+        for (Team team:
+             this.teams) {
+            employers.addAll(team.getEmployers());
+        }
+        return employers;
+    }
+
     public void addTeam(Team team){
-        this.team.add(team);
+        this.teams.add(team);
     }
 
     public void deliteTeam(Team team){
-        this.team.remove(team);
+        this.teams.remove(team);
     }
 
     public void deliteTeamByIndex(int index){
-        this.team.remove(index);
+        this.teams.remove(index);
     }
 
     @Override
     public String toString() {
         return  " name company = " + name + '\'' +
-                "teams: " + Arrays.toString(team.toArray()) +
+                "teams: " + Arrays.toString(teams.toArray()) +
                 '}';
     }
 

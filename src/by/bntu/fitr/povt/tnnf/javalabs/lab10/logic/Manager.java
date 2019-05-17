@@ -18,7 +18,7 @@ public class Manager {
         int allSalary = 0;
         if (company != null) {
             for (Team team :
-                    company.getTeam()) {
+                    company.getTeams()) {
                 if (team != null) {
                     for (Employer employer :
                             team.getEmployers()) {
@@ -27,7 +27,7 @@ public class Manager {
                             LOGGER.debug(" calculate salary: " + allSalary);
                         }
                         else {
-                            LOGGER.warn("employer = null");
+                            LOGGER.error("employer = null");
                         }
                         LOGGER.debug("Calculate salary = "+ allSalary);
                     }
@@ -40,7 +40,7 @@ public class Manager {
             }
             LOGGER.info("Common company salary = " + allSalary);
         } else {
-            LOGGER.warn("Company = null");
+            LOGGER.error("Company = null");
             allSalary = -1;
         }
         return allSalary;
@@ -48,13 +48,13 @@ public class Manager {
 
     public static int calculateMiddleSalary(Company company) {
         LOGGER.debug("method calculateMiddleSalary");
-        int middleSalary = 0;
+        int middleSalary;
         if (company != null && countCompanyEmployer(company)!= 0) {
             middleSalary = calculateCommonSalary(company)/ countCompanyEmployer(company);
             LOGGER.info("calculate company middle salary = " + middleSalary);
         }
         else{
-            LOGGER.warn("company = null or countCompanyEmployer = 0");
+            LOGGER.error("company = null or countCompanyEmployer = 0");
             middleSalary = -1;
         }
         return middleSalary;
@@ -65,7 +65,7 @@ public class Manager {
         int count = 0;
         if (company != null) {
             for (Team team:
-                    company.getTeam()) {
+                    company.getTeams()) {
                 if (team != null) {
                     count += team.getEmployers().size();
                     LOGGER.debug("count: "+ count);
@@ -95,13 +95,13 @@ public class Manager {
                     teamSalary += employer.getSalary();
                 }
                 else {
-                    LOGGER.warn("employer = null");
+                    LOGGER.error("employer = null");
                 }
             }
             LOGGER.info("calculate teamSalary("+ team.getTeamname() + ") Team Salary = " + teamSalary);
         }
         else {
-            LOGGER.warn("team = null");
+            LOGGER.error("team = null");
             teamSalary = -1;
         }
         return teamSalary;
@@ -110,8 +110,16 @@ public class Manager {
 
     public static int calculateProjectCost(Team team){
         LOGGER.debug("method calculateProjectCost");
-        int projectCost = calculateTeamSalary(team) * team.getProject().getCountMonth();
-        LOGGER.info("Project cost: " + projectCost);
+        int projectCost;
+        if (team != null){
+                projectCost = calculateTeamSalary(team) * team.getProject().getCountMonth();
+                LOGGER.info("Project cost: " + projectCost);
+        }
+        else {
+            projectCost = -1;
+        }
         return projectCost;
     }
+
+
 }

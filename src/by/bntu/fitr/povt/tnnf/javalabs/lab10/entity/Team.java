@@ -2,6 +2,7 @@ package by.bntu.fitr.povt.tnnf.javalabs.lab10.entity;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 public class Team {
 
@@ -15,12 +16,12 @@ public class Team {
 
     private Project project;
     private String teamname;
-    private ArrayList<Employer> employers;
+    private List<Employer> employers;
 
 
     public Team() {
         this.project = DEFAULT_PROJECT;
-        this.employers = new ArrayList<Employer>();
+        this.employers = new ArrayList<>();
         this.teamname = DEFAULT_TEAMNAME;
     }
 
@@ -62,11 +63,11 @@ public class Team {
         }
     }
 
-    public ArrayList<Employer> getEmployers() {
+    public List<Employer> getEmployers() {
         return employers;
     }
 
-    public void setEmployers(ArrayList<Employer> employers) {
+    public void setEmployers(List<Employer> employers) {
         if (employers != null) {
             this.employers = employers;
         }
@@ -87,7 +88,7 @@ public class Team {
     }
 
     public void deliteEmployerByIndex(int index){
-        if (index < getCountEmployerInTeam()) {
+        if (index < getSize()) {
             this.employers.remove(index);
         }
     }
@@ -96,7 +97,7 @@ public class Team {
         this.employers.remove(employer);
     }
 
-    public int getCountEmployerInTeam(){
+    public int getSize(){
         return this.employers.size();
     }
 

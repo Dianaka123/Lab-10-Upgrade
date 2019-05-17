@@ -6,10 +6,17 @@ import by.bntu.fitr.povt.tnnf.javalabs.lab10.entity.employers.Cleaner;
 import by.bntu.fitr.povt.tnnf.javalabs.lab10.entity.employers.Designer;
 import by.bntu.fitr.povt.tnnf.javalabs.lab10.entity.employers.Programmer;
 import by.bntu.fitr.povt.tnnf.javalabs.lab10.entity.employers.Tester;
+import by.bntu.fitr.povt.tnnf.javalabs.lab10.entity.search.SearchByEmployerExperience;
+import by.bntu.fitr.povt.tnnf.javalabs.lab10.entity.search.SearchEmployerByAge;
+import by.bntu.fitr.povt.tnnf.javalabs.lab10.entity.search.SearchEmployerByProfessionType;
+import by.bntu.fitr.povt.tnnf.javalabs.lab10.entity.search.SearchEmployerBySalary;
 import by.bntu.fitr.povt.tnnf.javalabs.lab10.logic.Manager;
 import by.bntu.fitr.povt.tnnf.javalabs.lab10.type.ProjectComplexity;
 import by.bntu.fitr.povt.tnnf.javalabs.lab10.type.TypeCleaningTool;
 import org.apache.log4j.Logger;
+
+import java.io.Reader;
+import java.util.*;
 
 
 public class Controller {
@@ -34,6 +41,8 @@ public class Controller {
 
         Team secondTeam = new Team();
         secondTeam.addEmployerInTeam(cleaner);
+        programmer.writeCode();
+        firstTeam.getEmployer(1).getSalary();
 
         company.addTeam(firstTeam);
         company.addTeam(secondTeam);
@@ -49,5 +58,44 @@ public class Controller {
         Customer customer = new Customer( "Nikita", project, ProjectComplexity.EASY);
         customer.getProject().setCost(costProject);
 
+
+        // test strategy pattern
+
+//        List<Employer> list = company.doSearch(company.getAllEmployer());
+//        for (Employer employer :
+//                list) {
+//            System.out.println(employer.getName());
+//        }
+
+//        company.setSearchStrategy(new SearchEmployerBySalary());
+//        company.doSearch(list);
+//
+//        for (Employer e :
+//                list) {
+//            System.out.println(e.getSalary());
+//        }
+//        company.setSearchStrategy(new SearchEmployerByProfessionType());
+//        company.doSearch(list);
+//
+//        for (Employer e:
+//             list) {
+//            System.out.println(e.getProfessionType());
+//        }
+//
+//        company.setSearchStrategy(new SearchEmployerByAge());
+//        company.doSearch(list);
+//
+//        for (Employer employer:
+//             list) {
+//            System.out.println(employer.getAge());
+//        }
+//
+//        company.setSearchStrategy(new SearchByEmployerExperience());
+//        company.doSearch(list);
+//
+//        for (Employer employer:
+//                list) {
+//            System.out.println(employer.getExperience());
+//        }
     }
 }

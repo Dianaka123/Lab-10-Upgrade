@@ -8,18 +8,12 @@ public class Employer {
     private static final String WE_ARE_FRIENDS = "Hello! Now we are friends!";
     private static final String DEFAULT_NAME_EMPLOYER = "no name";
 
-//    private static int employerAmount = 0;
 
     private String name;
     private int salary;
     private ProfessionType professionType;
     private int age;
     private int experience;
-
-
-//    {
-//        employerAmount++;
-//    }
 
 
     public Employer() {
@@ -46,7 +40,37 @@ public class Employer {
         experience = employer.experience;
     }
 
-    public int getSalary() {
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        if (name != null) {
+            this.name = name;
+        }
+    }
+
+    public Integer getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        if (age > 16) {
+            this.age = age;
+        }
+    }
+
+    public Integer getExperience() {
+        return experience;
+    }
+
+    public void setExperience(int experience) {
+        if (experience > 0) {
+            this.experience = experience;
+        }
+    }
+
+    public Integer getSalary() {
         return salary;
     }
 
@@ -65,6 +89,15 @@ public class Employer {
 //    public int getCountCompanyEmployer() {
 //        return employerAmount;
 //    }
+
+
+    public ProfessionType getProfessionType() {
+        return professionType;
+    }
+
+    public void setProfessionType(ProfessionType professionType) {
+        this.professionType = professionType;
+    }
 
     @Override
     public String toString() {

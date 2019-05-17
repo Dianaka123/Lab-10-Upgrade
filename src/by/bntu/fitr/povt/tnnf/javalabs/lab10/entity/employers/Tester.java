@@ -17,7 +17,7 @@ public class Tester extends Employer {
         this.countTestProject = countTestProject;
     }
 
-    public Tester(String name, int salary,  int age, int experience, int countTestProject) {
+    public Tester(String name, int salary, int age, int experience, int countTestProject) {
         super(name, salary, ProfessionType.TESTER, age, experience);
         this.countTestProject = countTestProject;
     }
